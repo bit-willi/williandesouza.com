@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willian Souza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0A;
+            color: #E4E4E7; /* Slightly off-white for text */
+        }
+        .hero-gradient-text {
+            background: linear-gradient(to right, #A855F7, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-glow {
+            position: relative;
+            z-index: 1;
+        }
+        .section-glow::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 300px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1), transparent 70%);
+            filter: blur(100px);
+            opacity: 0.5;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        .project-card:hover {
+            border-color: #A855F7;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-30 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">Willian Souza</h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#work" class="text-gray-300 hover:text-white transition-colors duration-300">Work</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">Mission</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-white text-black font-semibold px-5 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-300">Get In Touch</a>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+             <a href="#work" class="block py-2 text-gray-300 hover:text-white">Work</a>
+             <a href="#about" class="block py-2 text-gray-300 hover:text-white">Mission</a>
+             <a href="#contact" class="block py-2 text-gray-300 hover:text-white">Contact</a>
+             <a href="#contact" class="block mt-2 bg-white text-black text-center font-semibold px-5 py-2 rounded-lg hover:bg-gray-200">Get In Touch</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="pt-32 pb-16">
+        <section class="container mx-auto px-6 text-center section-glow">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
+                    Changing the world through <span class="hero-gradient-text">education and technology.</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+                    I'm an entrepreneur and Founder of Arcas, on a mission to help people become more productive and achieve their goals. Honored to be on the Forbes 30 Under 30 list.
+                </p>
+                <a href="#work" class="bg-purple-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-purple-700 transition-transform duration-300 inline-block transform hover:scale-105">
+                    Explore My Ventures
+                </a>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider">My Work</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Ventures & Projects</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <a href="#" class="project-card block bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden group transition-all duration-300">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/600x400/0A0A0A/E4E4E7?text=Arcas" alt="Arcas Project" class="project-image w-full h-auto object-cover transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Arcas</h4>
+                            <p class="text-gray-400">Founder. Building the future of education with an AI-powered platform designed to unlock human potential.</p>
+                        </div>
+                    </a>
+                    <!-- Project Card 2 -->
+                    <a href="#" class="project-card block bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden group transition-all duration-300">
+                        <div class="overflow-hidden">
+                           <img src="https://placehold.co/600x400/111111/EC4899?text=Productivity" alt="Productivity Systems Project" class="project-image w-full h-auto object-cover transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Productivity Systems</h4>
+                            <p class="text-gray-400">Developing frameworks and content that empower individuals and teams to achieve their most ambitious goals.</p>
+                        </div>
+                    </a>
+                    <!-- Project Card 3 -->
+                    <a href="#" class="project-card block bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden group transition-all duration-300">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/600x400/0F0F0F/A855F7?text=Advisory" alt="Advisory Project" class="project-image w-full h-auto object-cover transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Angel Investing & Advisory</h4>
+                            <p class="text-gray-400">Supporting the next generation of tech startups that are poised to make a positive impact on the world.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About/Mission Section -->
+        <section id="about" class="py-24 bg-gray-900/30">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/500x500/1A1A1A/FFFFFF?text=Willian+Souza" alt="Willian Souza" class="rounded-full w-64 h-64 md:w-80 md:h-80 mx-auto object-cover border-4 border-gray-800 shadow-lg">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider">My Mission</h3>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">To Unlock Human Potential</h2>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            I believe that education is the most powerful lever for positive change. My journey as an entrepreneur is driven by a single, lifetime goal: to reshape the way we learn and grow. We're in a unique position to leverage technology, especially AI, to create more personalized, effective, and accessible educational experiences for everyone.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed">
+                            Through my company, Arcas, and my other ventures, I am dedicated to building tools and systems that not only help people become more productive but also empower them to pursue their passions and achieve their full potential.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 section-glow">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-2xl mx-auto">
+                    <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider">Connect With Me</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">Let's Build the Future Together.</h2>
+                    <p class="text-lg text-gray-400 mb-8">
+                        I'm always open to connecting with like-minded individuals, potential partners, and the next generation of innovators. If my mission resonates with you, let's talk.
+                    </p>
+                    <a href="mailto:contact@willsouza.com" class="bg-white text-black font-semibold px-8 py-4 rounded-lg hover:bg-gray-200 transition-all duration-300 inline-block text-lg">
+                        contact@willsouza.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <div class="flex justify-center space-x-6 mb-4">
+                 <a href="https://www.instagram.com/willsouzme/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300">Instagram</a>
+                 <a href="https://www.linkedin.com/in/willian-souza-95b580185/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300">LinkedIn</a>
+            </div>
+            <p>&copy; 2024 Willian Souza. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

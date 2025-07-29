@@ -36,7 +36,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0A0A0A;
-            color: #E4E4E7; /* Slightly off-white for text */
+            color: #E4E4E7;
         }
         .hero-gradient-text {
             background: linear-gradient(to right, #A855F7, #EC4899);
@@ -66,6 +66,11 @@
         .project-card:hover {
             border-color: #A855F7;
         }
+        /* Style for the active language */
+        .lang-switcher a.active {
+            color: #A855F7;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -74,22 +79,31 @@
     <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-30 backdrop-blur-lg border-b border-gray-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-white">Willian de Souza</h1>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#work" class="text-gray-300 hover:text-white transition-colors duration-300">Work</a>
-                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">Mission</a>
-                <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#work" class="text-gray-300 hover:text-white transition-colors duration-300" data-key="navWork"></a>
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300" data-key="navMission"></a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300" data-key="navContact"></a>
+                <!-- Language Switcher -->
+                <div class="lang-switcher text-gray-400 flex items-center space-x-2 border-l border-gray-700 pl-6">
+                    <a href="#" lang="en" class="hover:text-white transition-colors duration-200">EN</a>
+                    <span>/</span>
+                    <a href="#" lang="pt" class="hover:text-white transition-colors duration-200">PT</a>
+                </div>
             </nav>
-            <a href="#contact" class="hidden md:inline-block bg-white text-black font-semibold px-5 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-300">Get In Touch</a>
             <button id="mobile-menu-button" class="md:hidden text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-             <a href="#work" class="block py-2 text-gray-300 hover:text-white">Work</a>
-             <a href="#about" class="block py-2 text-gray-300 hover:text-white">Mission</a>
-             <a href="#contact" class="block py-2 text-gray-300 hover:text-white">Contact</a>
-             <a href="#contact" class="block mt-2 bg-white text-black text-center font-semibold px-5 py-2 rounded-lg hover:bg-gray-200">Get In Touch</a>
+             <a href="#work" class="block py-2 text-gray-300 hover:text-white" data-key="navWork"></a>
+             <a href="#about" class="block py-2 text-gray-300 hover:text-white" data-key="navMission"></a>
+             <a href="#contact" class="block py-2 text-gray-300 hover:text-white" data-key="navContact"></a>
+             <div class="lang-switcher text-gray-400 flex items-center space-x-2 pt-4 mt-4 border-t border-gray-700">
+                <a href="#" lang="en" class="hover:text-white transition-colors duration-200">EN</a>
+                <span>/</span>
+                <a href="#" lang="pt" class="hover:text-white transition-colors duration-200">PT</a>
+            </div>
         </div>
     </header>
 
@@ -97,15 +111,9 @@
     <main class="pt-32 pb-16">
         <section class="container mx-auto px-6 text-center section-glow">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
-                    Changing the world through <span class="hero-gradient-text">education and technology.</span>
-                </h2>
-                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-                    I'm an entrepreneur and Founder of Arcas, on a mission to help people become more productive and achieve their goals.
-                </p>
-                <a href="#work" class="bg-purple-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-purple-700 transition-transform duration-300 inline-block transform hover:scale-105">
-                    Explore My Projects
-                </a>
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4" data-key="heroTitle"></h2>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8" data-key="heroSubtitle"></p>
+                <a href="#work" class="bg-purple-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-purple-700 transition-transform duration-300 inline-block transform hover:scale-105" data-key="heroButton"></a>
             </div>
         </section>
 
@@ -113,44 +121,34 @@
         <section id="work" class="py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider">My Work</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Ventures & Projects</h2>
+                    <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider" data-key="workTag"></h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2" data-key="workTitle"></h2>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project Card 1: Eleven Soft -->
                     <a href="https://elevensoft.dev" target="_blank" rel="noopener noreferrer" class="project-card block bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden group transition-all duration-300">
-                        <div class="overflow-hidden">
-                            <!-- NOTE: Make sure you have an 'assets' folder with 'eleven-logo.png' inside it -->
-                            <img src="assets/eleven-logo.png" alt="Eleven Soft Logo" class="project-image w-full h-48 object-contain p-6 transition-transform duration-300">
-                        </div>
+                        <div class="overflow-hidden"><img src="assets/eleven-logo.png" alt="Eleven Soft Logo" class="project-image w-full h-48 object-contain p-6 transition-transform duration-300"></div>
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-white mb-2">Eleven Soft</h4>
-                            <p class="text-gray-400">Cofounder. Building high-quality software for high-risk operations.</p>
+                            <h4 class="text-xl font-bold text-white mb-2" data-key="elevenTitle"></h4>
+                            <p class="text-gray-400" data-key="elevenDesc"></p>
                         </div>
                     </a>
 
                     <!-- Project Card 2: Impactiva Agency -->
-                    <a href="https://agenciaimpactiva.com" target="_blank" rel="noopener noreferrer" class="project-card block border border-gray-800 rounded-xl overflow-hidden group transition-all duration-300">
-                        <div class="overflow-hidden bg-[#ff3131]">
-                           <!-- NOTE: Make sure you have an 'assets' folder with 'impactiva-logo.png' inside it -->
-                           <img src="assets/impactiva-logo.png" alt="Impactiva Agency Logo" class="project-image w-full h-48 object-contain mx-auto transition-transform duration-300">
-                        </div>
-                        <div class="p-6 bg-[#0A0A0A]">
-                            <h4 class="text-xl font-bold text-white mb-2">Impactiva Agency</h4>
-                            <p class="text-gray-400">Cofounder. Helping YouTubers to build high-quality educational content that lasts forever.</p>
+                    <a href="https://agenciaimpactiva.com" target="_blank" rel="noopener noreferrer" class="project-card block border border-gray-800 bg-gray-900/50 rounded-xl overflow-hidden group transition-all duration-300">
+                        <div class="overflow-hidden bg-[#ff3131]"><img src="assets/impactiva-logo.png" alt="Impactiva Agency Logo" class="project-image w-full h-48 object-contain mx-auto transition-transform duration-300"></div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2" data-key="impactivaTitle"></h4>
+                            <p class="text-gray-400" data-key="impactivaDesc"></p>
                         </div>
                     </a>
 
                     <!-- Project Card 3: Arcas -->
                     <a href="#" class="project-card block bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden group transition-all duration-300">
-                        <div class="overflow-hidden">
-                            <!-- NOTE: Replace this placeholder with your own image for Arcas -->
-                           <img src="https://placehold.co/600x400/111111/EC4899?text=Arcas" alt="Arcas Project" class="project-image w-full h-48 object-cover transition-transform duration-300">
-                        </div>
+                        <div class="overflow-hidden"><img src="https://placehold.co/600x400/111111/EC4899?text=Arcas" alt="Arcas Project" class="project-image w-full h-48 object-cover transition-transform duration-300"></div>
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-white mb-2">Arcas</h4>
-                            <p class="text-gray-400">Developing frameworks and content that empower individuals and teams to achieve their most ambitious goals.</p>
+                            <h4 class="text-xl font-bold text-white mb-2" data-key="arcasTitle"></h4>
+                            <p class="text-gray-400" data-key="arcasDesc"></p>
                         </div>
                     </a>
                 </div>
@@ -161,19 +159,12 @@
         <section id="about" class="py-24 bg-gray-900/30">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2">
-                        <!-- NOTE: Make sure you have an 'assets' folder with 'profile.jpg' inside it -->
-                        <img src="assets/profile.jpg" alt="Willian de Souza" class="rounded-full w-64 h-64 md:w-80 md:h-80 mx-auto object-cover border-4 border-gray-800 shadow-lg">
-                    </div>
+                    <div class="md:w-1/2"><img src="assets/profile.jpg" alt="Willian de Souza" class="rounded-full w-64 h-64 md:w-80 md:h-80 mx-auto object-cover border-4 border-gray-800 shadow-lg"></div>
                     <div class="md:w-1/2 text-center md:text-left">
-                        <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider">My Mission</h3>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">To Unlock Human Potential</h2>
-                        <p class="text-gray-400 mb-4 leading-relaxed">
-                            I believe that education is the most powerful lever for positive change. My journey as an entrepreneur is driven by a single, lifetime goal: to reshape the way we learn and grow. We're in a unique position to leverage technology, especially AI, to create more personalized, effective, and accessible educational experiences for everyone.
-                        </p>
-                        <p class="text-gray-400 leading-relaxed">
-                            Through my companies and projects, I am dedicated to building tools and systems that not only help people become more productive but also empower them to pursue their passions and achieve their full potential.
-                        </p>
+                        <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider" data-key="missionTag"></h3>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4" data-key="missionTitle"></h2>
+                        <p class="text-gray-400 mb-4 leading-relaxed" data-key="missionDesc1"></p>
+                        <p class="text-gray-400 leading-relaxed" data-key="missionDesc2"></p>
                     </div>
                 </div>
             </div>
@@ -183,14 +174,10 @@
         <section id="contact" class="py-24 section-glow">
             <div class="container mx-auto px-6 text-center">
                 <div class="max-w-2xl mx-auto">
-                    <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider">Connect With Me</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">Let's Build the Future Together.</h2>
-                    <p class="text-lg text-gray-400 mb-8">
-                        I'm always open to connecting with like-minded individuals, potential partners, and the next generation of innovators. If my mission resonates with you, let's talk.
-                    </p>
-                    <a href="mailto:contact@williandesouza.com" class="bg-white text-black font-semibold px-8 py-4 rounded-lg hover:bg-gray-200 transition-all duration-300 inline-block text-lg">
-                        contact@williandesouza.com
-                    </a>
+                    <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider" data-key="connectTag"></h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4" data-key="connectTitle"></h2>
+                    <p class="text-lg text-gray-400 mb-8" data-key="connectDesc"></p>
+                    <a href="mailto:contact@williandesouza.com" class="bg-white text-black font-semibold px-8 py-4 rounded-lg hover:bg-gray-200 transition-all duration-300 inline-block text-lg" data-key="connectEmail"></a>
                 </div>
             </div>
         </section>
@@ -203,15 +190,61 @@
                  <a href="https://www.instagram.com/willsouzame/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300">Instagram</a>
                  <a href="https://www.linkedin.com/in/willian-souza-95b580185/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300">LinkedIn</a>
             </div>
-            <p>&copy; 2025 Willian de Souza. All Rights Reserved.</p>
+            <p data-key="footerRights"></p>
         </div>
     </footer>
 
     <script>
+        // --- Language Translation Script ---
+        const translations = {};
+        let currentLang = 'en';
+
+        // Function to fetch language JSON and update content
+        async function setLanguage(lang) {
+            if (!translations[lang]) {
+                const response = await fetch(`lang/${lang}.json`);
+                translations[lang] = await response.json();
+            }
+
+            const trans = translations[lang];
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (trans[key]) {
+                    // Using innerHTML to render the gradient span correctly
+                    elem.innerHTML = trans[key];
+                }
+            });
+
+            // Update the lang attribute of the html tag for accessibility
+            document.documentElement.lang = lang;
+            currentLang = lang;
+
+            // Store user's preference
+            localStorage.setItem('language', lang);
+
+            // Update active class on switcher
+            document.querySelectorAll('.lang-switcher a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('lang') === lang) {
+                    a.classList.add('active');
+                }
+            });
+        }
+
+        // --- Event Listeners ---
+
+        // Language switcher click event
+        document.querySelectorAll('.lang-switcher a').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = a.getAttribute('lang');
+                setLanguage(lang);
+            });
+        });
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
@@ -222,13 +255,21 @@
                 e.preventDefault();
                 const targetElement = document.querySelector(this.getAttribute('href'));
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('language');
+            const browserLang = navigator.language.split('-')[0]; // "pt-BR" -> "pt"
+
+            const initialLang = savedLang || (browserLang === 'pt' ? 'pt' : 'en');
+            setLanguage(initialLang);
         });
     </script>
 
 </body>
 </html>
+
